@@ -34,6 +34,6 @@ public enum PermissionType {
     TRAMPLE_CROPS("trampleCrops"),
     INTERACT("interact"),
     PORTAL("portal"),
-    ISLAND_SETTINGS("island_settings");
+    ISLAND_SETTINGS("island_settings"),
     VIP("vip");
 }
