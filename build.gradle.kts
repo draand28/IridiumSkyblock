@@ -29,7 +29,7 @@ dependencies {
     implementation("com.github.Redempt:Crunch:1.0.0")
     implementation("com.j256.ormlite:ormlite-core:5.7")
     implementation("com.j256.ormlite:ormlite-jdbc:5.7")
-    implementation("de.jeff_media:SpigotUpdateChecker:1.3.0")
+    //implementation("de.jeff_media:SpigotUpdateChecker:1.3.0")
 
     // Other dependencies that are not required or already available at runtime
     compileOnly("org.projectlombok:lombok:1.18.22")
