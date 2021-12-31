@@ -13,6 +13,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -43,12 +45,14 @@ public class RegenCommand extends Command {
         Optional<Island> island = user.getIsland();
         if (!island.isPresent()) {
             player.sendMessage(StringUtils.color(IridiumSkyblock.getInstance().getMessages().noIsland.replace("%prefix%", IridiumSkyblock.getInstance().getConfiguration().prefix)));
+            plugin.getLogger().info("Debug 1");
             return false;
         }
 
         if (args.length == 1) {
             if (!IridiumSkyblock.getInstance().getIslandManager().getIslandPermission(island.get(), IridiumSkyblock.getInstance().getUserManager().getUser(player), PermissionType.REGEN)) {
                 player.sendMessage(StringUtils.color(IridiumSkyblock.getInstance().getMessages().cannotRegenIsland.replace("%prefix%", IridiumSkyblock.getInstance().getConfiguration().prefix)));
+                plugin.getLogger().info("Debug 2");
                 return false;
             }
 
