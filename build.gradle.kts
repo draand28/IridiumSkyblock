@@ -17,7 +17,7 @@ repositories {
     maven("https://jitpack.io")
     maven("https://nexus.iridiumdevelopment.net/repository/maven-releases/")
     maven("https://papermc.io/repo/repository/maven-public/")
-    // maven("https://repo.rosewooddev.io/repository/public/") //testing without rosewooddev repo as it is down (code 502)
+    maven("https://repo.rosewooddev.io/repository/public/")
     maven("https://hub.jeff-media.com/nexus/repository/jeff-media-public/")
 }
 
