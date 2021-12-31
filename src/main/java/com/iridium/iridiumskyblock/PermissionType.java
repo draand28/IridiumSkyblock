@@ -36,6 +36,4 @@ public enum PermissionType {
     PORTAL("portal"),
     ISLAND_SETTINGS("island_settings");
     VIP("vip");
-
-, VIP    , VIPprivate final String permissionKey;
 }
