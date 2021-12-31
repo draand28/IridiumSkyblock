@@ -51,7 +51,7 @@ public class RegenCommand extends Command {
         if (args.length == 1) {
             if (!IridiumSkyblock.getInstance().getIslandManager().getIslandPermission(island.get(), IridiumSkyblock.getInstance().getUserManager().getUser(player), PermissionType.REGEN)) {
                 player.sendMessage(StringUtils.color(IridiumSkyblock.getInstance().getMessages().cannotRegenIsland.replace("%prefix%", IridiumSkyblock.getInstance().getConfiguration().prefix)));
-                plugin.getLogger().info("Debug 2");
+                IridiumSkyblock.getLogger().info("Debug 2");
                 return false; //huh? - i guess no permission & 1 arg only, incorrect syntax?
             }
 
