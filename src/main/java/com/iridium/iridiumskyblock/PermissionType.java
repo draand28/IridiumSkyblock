@@ -35,6 +35,7 @@ public enum PermissionType {
     INTERACT("interact"),
     PORTAL("portal"),
     ISLAND_SETTINGS("island_settings");
+    VIP("vip");
 
-    private final String permissionKey;
+, VIP    , VIPprivate final String permissionKey;
 }

@@ -550,6 +550,7 @@ public class IridiumSkyblock extends IridiumCore {
         this.permissionList.put(PermissionType.INTERACT.getPermissionKey(), permissions.interact);
         this.permissionList.put(PermissionType.PORTAL.getPermissionKey(), permissions.portal);
         this.permissionList.put(PermissionType.ISLAND_SETTINGS.getPermissionKey(), permissions.islandSettings);
+        this.permissionList.put(PermissionType.VIP.getPermissionKey(), permissions.vip);
     }
 
     private void initializeSettingsList() {

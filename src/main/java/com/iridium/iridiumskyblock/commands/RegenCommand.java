@@ -39,35 +39,35 @@ public class RegenCommand extends Command {
      * @param args   The arguments used with this command. They contain the sub-command
      */
     @Override
-    public boolean execute(CommandSender sender, String[] args) {
+    public boolean execute(CommandSender sender, String[] args) { //this is a series of checks, with failed check returns a false, thus closing the regen request
         Player player = (Player) sender;
         User user = IridiumSkyblock.getInstance().getUserManager().getUser(player);
         Optional<Island> island = user.getIsland();
         if (!island.isPresent()) {
             player.sendMessage(StringUtils.color(IridiumSkyblock.getInstance().getMessages().noIsland.replace("%prefix%", IridiumSkyblock.getInstance().getConfiguration().prefix)));
-            plugin.getLogger().info("Debug 1");
-            return false;
+            return false; //no island, no regen can happen
         }
 
         if (args.length == 1) {
             if (!IridiumSkyblock.getInstance().getIslandManager().getIslandPermission(island.get(), IridiumSkyblock.getInstance().getUserManager().getUser(player), PermissionType.REGEN)) {
                 player.sendMessage(StringUtils.color(IridiumSkyblock.getInstance().getMessages().cannotRegenIsland.replace("%prefix%", IridiumSkyblock.getInstance().getConfiguration().prefix)));
                 plugin.getLogger().info("Debug 2");
-                return false;
+                return false; //huh? - i guess no permission & 1 arg only, incorrect syntax?
             }
 
             player.openInventory(new IslandRegenGUI(player, getCooldownProvider()).getInventory());
-            return false;
+            return false; //inventory stuff, ignore
         }
 
         Optional<Schematics.SchematicConfig> schematicConfig = IridiumSkyblock.getInstance().getSchematics().schematics.entrySet().stream().filter(entry -> entry.getKey().equalsIgnoreCase(args[1])).map(Map.Entry::getValue).findFirst();
         if (!schematicConfig.isPresent()) {
             player.sendMessage(StringUtils.color(IridiumSkyblock.getInstance().getMessages().unknownSchematic.replace("%prefix%", IridiumSkyblock.getInstance().getConfiguration().prefix)));
-            return false;
+            return false;  //unknown schematic
         }
-
-        IridiumSkyblock.getInstance().getIslandManager().regenerateIsland(island.get(), user, schematicConfig.get());
-        return true;
+        String IslandName = entry.getKey();
+        if(IslandName != "largecaveisland")
+            {IridiumSkyblock.getInstance().getIslandManager().regenerateIsland(island.get(), user, schematicConfig.get());
+        return true;} //actual regeneration
     }
 
     /**
